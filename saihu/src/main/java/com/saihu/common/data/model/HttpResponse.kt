@@ -8,6 +8,13 @@ data class HttpResponse<T>(
     val data: T
 )
 
+@Serializable
+data class HttpPage<T>(
+    val total: Int,
+    var totalPage: Int = 1,
+    val records: T
+)
+
 sealed class ApiState<T> {
     object NotStarted : ApiState<Nothing>()
     object Loading : ApiState<Nothing>()

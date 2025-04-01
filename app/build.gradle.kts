@@ -36,6 +36,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":saihu"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

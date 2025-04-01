@@ -3,7 +3,7 @@ package com.saihu.common.util
 import android.content.Context
 import com.saihu.common.data.model.Account
 
-open class BaseGlobal() {
+open class Global {
     private val TAG = "Global"
     open var user: Account? = null
         set(value) {
