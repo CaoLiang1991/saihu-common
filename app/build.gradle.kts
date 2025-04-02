@@ -1,6 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.apollo)
+    kotlin("plugin.serialization") version "2.0.0"
+    kotlin("kapt")
 }
 
 android {
@@ -37,6 +42,9 @@ android {
 
 dependencies {
     implementation(project(":saihu"))
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
+    kapt(libs.hilt.android.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -1,6 +1,9 @@
 package com.saihu.common.util
 
 import android.text.TextUtils
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Dp
 import java.math.BigDecimal
 import java.math.RoundingMode
 
@@ -42,3 +45,10 @@ private val MOBILE_REGEX =
     Regex(pattern = "^((13[0-9])|(14[0-9])|(15[0-9])|(17[0-9])|(18[0-9]))(\\d{8})$")
 
 fun String.isMobile() = if (TextUtils.isEmpty(this)) false else matches(MOBILE_REGEX)
+
+@Composable
+fun Dp.dpToPx() = with(LocalDensity.current) { this@dpToPx.toPx() }
+
+
+@Composable
+fun Int.pxToDp() = with(LocalDensity.current) { this@pxToDp.toDp() }

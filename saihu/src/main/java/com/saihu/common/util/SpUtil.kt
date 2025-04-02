@@ -29,7 +29,7 @@ object SpUtil {
         return gson.fromJson(json, Account::class.java)
     }
 
-    private fun saveString(key: String, value: String) {
+    fun saveString(key: String, value: String) {
         val context = contextRef.get()
         if (context != null) {
             val sharedPref = context.getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
@@ -39,7 +39,7 @@ object SpUtil {
         }
     }
 
-    private fun getString(key: String): String {
+    fun getString(key: String): String {
         val context = contextRef.get()
         if (context != null) {
             val sharedPref = context.getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
