@@ -1,29 +1,9 @@
-# README #
+# 赛狐APP相关插件包
 
-This README would normally document whatever steps are necessary to get your application up and running.
+## 简介
 
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+1.ktor http请求工具
+2.apollo graphql请求工具
+3.日期工具
+4.toast提示工具
+5.申请权限工具
