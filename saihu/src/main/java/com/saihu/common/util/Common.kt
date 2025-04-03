@@ -7,37 +7,37 @@ import androidx.compose.ui.unit.Dp
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-fun String.toBigDecimal(): BigDecimal {
+fun String.toBigNumber(): BigDecimal {
     return this.toBigDecimal().stripTrailingZeros()
 }
 
 operator fun Any.plus(value: Any): BigDecimal {
-    val num1 = this.toString().toBigDecimal()
-    val num2 = value.toString().toBigDecimal()
+    val num1 = this.toString().toBigNumber()
+    val num2 = value.toString().toBigNumber()
     return num1.add(num2)
 }
 
 operator fun Any.minus(value: Any): BigDecimal {
-    val num1 = this.toString().toBigDecimal()
-    val num2 = value.toString().toBigDecimal()
+    val num1 = this.toString().toBigNumber()
+    val num2 = value.toString().toBigNumber()
     return num1.subtract(num2)
 }
 
 operator fun Any.times(value: Any): BigDecimal {
-    val num1 = this.toString().toBigDecimal()
-    val num2 = value.toString().toBigDecimal()
+    val num1 = this.toString().toBigNumber()
+    val num2 = value.toString().toBigNumber()
     return num1.multiply(num2)
 }
 
 operator fun Any.div(value: Any): BigDecimal {
-    val num1 = this.toString().toBigDecimal()
-    val num2 = value.toString().toBigDecimal()
+    val num1 = this.toString().toBigNumber()
+    val num2 = value.toString().toBigNumber()
     return num1.divide(num2, 2, RoundingMode.HALF_UP)
 }
 
 operator fun Any.compareTo(value: Any): Int {
-    val num1 = this.toString().toBigDecimal()
-    val num2 = value.toString().toBigDecimal()
+    val num1 = this.toString().toBigNumber()
+    val num2 = value.toString().toBigNumber()
     return num1.compareTo(num2)
 }
 
