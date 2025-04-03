@@ -97,26 +97,18 @@ object KtorUtil {
 private val httpResponseValidatorConfig: HttpCallValidator.Config.() -> Unit = {
     val gson = Gson()
 
-    data class HttpError(
-        val status: Int,
-        val title: String,
-        val detail: String,
-        val type: String,
-        val instance: String,
-    )
-
     validateResponse { response ->
         if (response.status != HttpStatusCode.OK) {
             val data =
-                gson.fromJson(response.content.readUTF8Line(), HttpError::class.java)
-            throw Exception("错误码: ${data.status}, 错误信息: ${data.detail}")
+                gson.fromJson(response.content.readUTF8Line(), HttpResponse::class.java)
+            throw Exception("错误码: ${data.code}, 错误信息: ${data.msg}")
         }
     }
     handleResponseExceptionWithRequest { exception, _ ->
         val clientException = exception as? ClientRequestException
             ?: return@handleResponseExceptionWithRequest
         val response = clientException.response
-        val data = gson.fromJson(response.content.readUTF8Line(), HttpError::class.java)
-        throw Exception("错误码: ${data.status}, 错误信息: ${data.detail}")
+        val data = gson.fromJson(response.content.readUTF8Line(), HttpResponse::class.java)
+        throw Exception("错误码: ${data.code}, 错误信息: ${data.msg}")
     }
 }

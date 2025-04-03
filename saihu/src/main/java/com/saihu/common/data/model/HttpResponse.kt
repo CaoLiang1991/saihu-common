@@ -4,6 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class HttpResponse<T>(
+    val code: Int,
     val msg: String? = "",
     val data: T
 )

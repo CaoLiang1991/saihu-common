@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt.android)
-    alias(libs.plugins.apollo)
     kotlin("plugin.serialization") version "2.0.0"
     kotlin("kapt")
 }
@@ -42,7 +41,7 @@ dependencies {
     api("androidx.core:core-ktx:1.15.0")
 
     api("androidx.activity:activity-compose:1.10.1")
-    api(platform("androidx.compose:compose-bom:2025.03.00"))
+    api(platform("androidx.compose:compose-bom:2025.03.01"))
     val uiVersion = "1.7.8"
     api("androidx.compose.ui:ui:$uiVersion")
     api("androidx.compose.ui:ui-graphics:$uiVersion")
