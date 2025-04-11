@@ -8,7 +8,7 @@ import java.math.BigDecimal
 import java.math.RoundingMode
 
 fun String.toBigNumber(): BigDecimal {
-    return this.toBigDecimal().stripTrailingZeros()
+    return this.toBigDecimal().stripTrailingZeros().toPlainString().toBigDecimal()
 }
 
 operator fun Any.plus(value: Any): BigDecimal {

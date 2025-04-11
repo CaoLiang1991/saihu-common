@@ -17,6 +17,7 @@ object BigDecimalSerializer : KSerializer<BigDecimal> {
 
     override fun deserialize(decoder: Decoder): BigDecimal {
         // 在反序列化时也可以应用stripTrailingZeros
-        return BigDecimal(decoder.decodeString()).stripTrailingZeros()
+        return BigDecimal(decoder.decodeString()).stripTrailingZeros().toPlainString()
+            .toBigDecimal()
     }
 }
