@@ -67,7 +67,6 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     kapt(libs.hilt.android.compiler)
 
-    api("com.github.tbruyelle:rxpermissions:0.12")
     api("io.reactivex.rxjava3:rxjava:3.1.8")
 
     testApi("junit:junit:4.13.2")

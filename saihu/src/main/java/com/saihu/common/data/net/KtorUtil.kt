@@ -57,16 +57,16 @@ object KtorUtil {
             if (!request.url.toString().contains("login") && !request.url.toString()
                     .contains("refreshtoken")
             ) {
-                val account = SpUtil.getAccount()!!
+                var account = SpUtil.getAccount()!!
                 var token = account.token
                 val diff = token.tokenExpires - (Date().time / 1000)
                 if (originalCall.response.status.value == 401 || (diff > 0 && diff <= 60 * 60)) {
-                    token = post("auth/refreshtoken") {
+                    account = post("auth/refreshtoken") {
                         setBody(
                             mapOf("refreshToken" to account.token.refreshToken)
                         )
                     }
-                    SpUtil.saveAccount(account.copy(token = token))
+                    SpUtil.saveAccount(account)
                     request.headers["Authorization"] = "Bearer ${token.token}"
                     execute(request)
                 } else {
