@@ -13,6 +13,10 @@ import io.ktor.client.plugins.HttpSend
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
+import io.ktor.client.plugins.logging.DEFAULT
+import io.ktor.client.plugins.logging.LogLevel
+import io.ktor.client.plugins.logging.Logger
+import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.plugins.plugin
 import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.client.request.get
@@ -41,6 +45,10 @@ object KtorUtil {
             }
             install(HttpTimeout) {
                 requestTimeoutMillis = 20 * 1000
+            }
+            install(Logging) {
+                logger = Logger.DEFAULT // 使用默认控制台输出
+                level = LogLevel.ALL    // 日志级别: ALL, HEADERS, BODY, INFO, NONE
             }
             defaultRequest {
                 url(hostUrl)
