@@ -89,15 +89,15 @@ object KtorUtil {
     suspend inline fun <reified T> get(
         urlString: String,
         block: HttpRequestBuilder.() -> Unit = {}
-    ): T? {
-        return httpClient.get(urlString, block).body<HttpResponse<T?>>().data
+    ): T {
+        return httpClient.get(urlString, block).body<HttpResponse<T>>().data
     }
 
     suspend inline fun <reified T> post(
         urlString: String,
         block: HttpRequestBuilder.() -> Unit = {}
-    ): T? {
-        return httpClient.post(urlString, block).body<HttpResponse<T?>>().data
+    ): T {
+        return httpClient.post(urlString, block).body<HttpResponse<T>>().data
     }
 }
 
