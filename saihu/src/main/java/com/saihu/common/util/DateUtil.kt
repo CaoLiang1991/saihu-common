@@ -11,9 +11,10 @@ object DateUtil {
         return dateFormat.format(Date())
     }
 
-    fun tomorrow(): String {
+    fun tomorrow(dateStr: String = currentDate()): String {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.CHINA)
         val calendar = Calendar.getInstance()
+        calendar.time = dateFormat.parse(dateStr) ?: return ""
         calendar.add(Calendar.DAY_OF_MONTH, 1)
         return dateFormat.format(calendar.time)
     }
@@ -38,4 +39,5 @@ object DateUtil {
             ""
         }
     }
+
 }
